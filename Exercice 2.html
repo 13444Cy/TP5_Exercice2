@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess game</title>
+</head>
+<body>
+  <h1>Guess the number game</h1>
+  <h2>On a un nombre entre 1 et 10 est ce que tu peut le trouver</h2>
+  <button style="
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    color: white;
+    background-color: #007BFF;"
+    onclick="
+      game();
+    "
+  > Démarrer le jeu</button>
+  <script>
+    function game(){
+      var randomNumber = Math.floor(Math.random() * 10) + 1;
+    var userGuess = 0;
+    var score = 0;
+    do{
+      userGuess = Number(prompt('Entrez votre supposition (entre 1 et 10) :'));
+      if(userGuess == randomNumber){
+        score++;
+        alert('Félicitations ! Vous avez deviné le bon nombre ' + randomNumber + ' en ' + score + ' essais.');
+      }
+      else if(userGuess < randomNumber){
+        alert('Votre nomber est plus petit ! Essayez encore.');
+        score++;
+      }
+      else if(userGuess > randomNumber){
+        alert('Votre nombre est plus grand ! Essayez encore.');
+        score++;
+      }
+    }while(userGuess != randomNumber);
+    }
+    
+  </script>
+</body>
+</html>
